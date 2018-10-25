@@ -46,7 +46,6 @@ function autoWriteFile(dirPath, prefix = './') {
     } else {
       for (let i = 0; i < pix.length; i++) {
         if (fileName.indexOf(pix[i]) > -1) {
-          console.log(relPath);
           fileName = fileName.replace(pix[i], '');
           let prefixName = prefix;
           if (prefixName.indexOf('./') === 0) {
@@ -58,7 +57,6 @@ function autoWriteFile(dirPath, prefix = './') {
           iconsRequireText += `  ${paramName}: require('${prefix}${fileName}${
             pix[i]
           }'),\n`;
-          console.log(iconsRequireText);
           break;
         }
       }
@@ -73,11 +71,11 @@ export default {
 --iconsRequireText--};
 /* eslint-enable global-require */
 `.replace('--iconsRequireText--', iconsRequireText);
-console.log(imagesPath, iconsFileText);
 fs.writeFileSync(imagesPath + '/index.js', iconsFileText, {
   encoding: 'utf8',
 });
 
+console.log(` `);
 console.log(`auto create files:`);
 console.log(imagesPath + '/index.js');
 console.log(`done!`);
