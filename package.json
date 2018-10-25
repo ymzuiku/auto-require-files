@@ -1,0 +1,26 @@
+{
+  "name": "auto-require-files",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ymzuiku/auto-require-files.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ymzuiku/auto-require-files/issues"
+  },
+  "homepage": "https://github.com/ymzuiku/auto-require-files#readme",
+  "bin": {
+    "auto-require-files": "index.js"
+  },
+  "dependencies": {
+    "fs-extra": "^7.0.0"
+  }
+}
