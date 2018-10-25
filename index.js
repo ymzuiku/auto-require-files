@@ -15,14 +15,8 @@ if (imagesPath.charAt(imagesPath.length - 1) === '/') {
   imagesPath = imagesPath.substring(0, imagesPath.length - 1);
 }
 const pix = ['.png', '.jpg', '.jpge', '.gif', '.svg', '.js', '.jsx'];
-let iconsRequireText = ``;
+let iconsRequireText = '';
 function autoWriteFile(dirPath, prefix = './') {
-  let file;
-  if (argv.length > 1) {
-    file = argv[1];
-  } else {
-    file = dirPath + '/index.js';
-  }
   const dirStat = fs.statSync(dirPath);
   if (!dirStat || !dirStat.isDirectory()) {
     console.log('error images dir');
