@@ -11,7 +11,7 @@ $ npm i -g auto-require-files
 $ auto-require-files src/images
 ```
 
-#### Ok, create src/images/index.js files now, look like this:
+#### Ok, create `src/images/index.js` files now, look like this:
 
 ```js
 /* eslint-disable global-require */
