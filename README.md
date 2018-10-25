@@ -16,6 +16,8 @@ $ auto-require-files src/images
 ```js
 /* eslint-disable global-require */
 export default {
+  subdir_logo: require('./subdir/logo.png'),
+  subdir_home: require('./subdir/home.png'),
   ic_tab_aboutus: require('./ic_tab_aboutus.png'),
   ic_tab_aboutus_selected: require('./ic_tab_aboutus_selected.png'),
   ic_tab_account: require('./ic_tab_account.png'),
