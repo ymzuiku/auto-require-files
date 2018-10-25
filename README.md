@@ -30,8 +30,9 @@ export default {
 
 ## Files load rule
 
+- Auto load sub dir files;
 - Auto load `.png, .jpg, .jpge, .gif, .svg, .js, .jsx` files;
-- Ignore `index.js, index.jsx` files.
+- Ignore one level dir `index.js, index.jsx` files.
 
 ## Licenes
 
