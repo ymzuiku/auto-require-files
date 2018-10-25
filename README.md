@@ -28,7 +28,7 @@ export default {
 /* eslint-enable global-require */
 ```
 
-## Files details
+## Files load rule
 
 Auto load `.png, .jpg, .jpge, .gif, .svg, .js, .jsx` files;
 and ignore `index.js, index.jsx` files.
