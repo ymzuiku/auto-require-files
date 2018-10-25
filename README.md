@@ -5,7 +5,7 @@ $ npm i -g auto-require-files
 
 ## Use
 
-#### If src/images have some images,
+#### If `src/images` have some images:
 
 ```sh
 $ auto-require-files src/images
