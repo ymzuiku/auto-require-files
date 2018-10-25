@@ -29,7 +29,7 @@ function autoWriteFile(dirPath) {
   for (let i = 0; i < icons.length; i++) {
     let fileName = icons[i];
     if (fileName === 'index.js' || fileName === 'index.jsx') {
-      break;
+      continue;
     }
     for (let i = 0; i < pix.length; i++) {
       if (fileName.indexOf(pix[i]) > -1) {
