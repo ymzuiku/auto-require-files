@@ -14,14 +14,20 @@ let imagesPath = path.resolve(process.cwd(), argv[0]);
 if (imagesPath.charAt(imagesPath.length - 1) === '/') {
   imagesPath = imagesPath.substring(0, imagesPath.length - 1);
 }
+
+if (!fs.existsSync(imagesPath)) {
+  console.log('[Error]: The require path is error');
+  return;
+}
+const imagesPathStat = fs.statSync(imagesPath);
+if (imagesPathStat && imagesPathStat.isDirectory() === false) {
+  console.log("[Error]: The path isn't a dir");
+  return;
+}
+
 const pix = ['.png', '.jpg', '.jpge', '.gif', '.svg', '.js', '.jsx'];
 let iconsRequireText = '';
 function autoWriteFile(dirPath, prefix = './') {
-  const dirStat = fs.statSync(dirPath);
-  if (!dirStat || !dirStat.isDirectory()) {
-    console.log('error images dir');
-    return;
-  }
   const icons = fs.readdirSync(dirPath, { encoding: 'utf8' });
   for (let i = 0; i < icons.length; i++) {
     let fileName = icons[i];
