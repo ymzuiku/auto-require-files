@@ -76,6 +76,7 @@ fs.writeFileSync(imagesPath + '/index.js', iconsFileText, {
 });
 
 console.log(` `);
-console.log(`auto create files:`);
+console.log(`Auto create files:`);
 console.log(imagesPath + '/index.js');
-console.log(`done!`);
+console.log(` `);
+console.log(`Done!`);
