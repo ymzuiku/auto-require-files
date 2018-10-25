@@ -30,8 +30,8 @@ export default {
 
 ## Files details
 
-Auto load `'.png', '.jpg', '.jpge', '.gif', '.svg', '.js', '.jsx'` files;
-and ignore `index.js, index.jsx`.
+Auto load `.png, .jpg, .jpge, .gif, .svg, .js, .jsx` files;
+and ignore `index.js, index.jsx` files.
 
 ## Licenes
 
