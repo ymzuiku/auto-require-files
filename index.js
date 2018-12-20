@@ -25,8 +25,13 @@ if (imagesPathStat && imagesPathStat.isDirectory() === false) {
   return;
 }
 
-const pix = ['.png', '.jpg', '.jpge', '.gif', '.svg', '.js', '.jsx'];
+let pix = ['.png', '.jpg', '.jpge', '.gif', '.svg'];
+if(argv[3]) {
+  const newPix = argv[3].split(', ');
+  pix = [...pix, ...newPix];
+}
 let iconsRequireText = '';
+let iconsRequireDTS = '';
 function autoWriteFile(dirPath, prefix = './') {
   const icons = fs.readdirSync(dirPath, { encoding: 'utf8' });
   for (let i = 0; i < icons.length; i++) {
@@ -57,6 +62,7 @@ function autoWriteFile(dirPath, prefix = './') {
           iconsRequireText += `  ${paramName}: require('${prefix}${fileName}${
             pix[i]
           }'),\n`;
+          iconsRequireDTS += `  ${paramName}: string,\n`
           break;
         }
       }
@@ -66,17 +72,25 @@ function autoWriteFile(dirPath, prefix = './') {
 
 autoWriteFile(imagesPath);
 
+const fileName = argv[1] || 'index';
 const iconsFileText = `/* eslint-disable global-require */
 export default {
 --iconsRequireText--};
 /* eslint-enable global-require */
 `.replace('--iconsRequireText--', iconsRequireText);
-fs.writeFileSync(imagesPath + '/index.js', iconsFileText, {
+fs.writeFileSync(`${imagesPath}/${fileName}.js`, iconsFileText, {
+  encoding: 'utf8',
+});
+
+const iconsFileDTS = `export default {
+  --iconsRequireText--};
+`.replace('--iconsRequireText--', iconsRequireDTS);
+fs.writeFileSync(`${imagesPath}/${fileName}.d.ts`, iconsFileDTS, {
   encoding: 'utf8',
 });
 
 console.log(` `);
 console.log(`Auto create files:`);
-console.log(imagesPath + '/index.js');
+console.log(`${imagesPath}/${fileName}.js`);
 console.log(` `);
 console.log(`Done!`);
